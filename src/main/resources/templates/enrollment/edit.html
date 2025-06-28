@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Enrollment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+        input {
+            padding: 6px;
+            width: 300px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Edit Enrollment</h2>
+    <form th:action="@{/enrollments/update}" method="post">
+        <input type="hidden" name="id" th:value="${enrollment.id}" />
+        
+        <label>Student ID:</label>
+        <input type="text" name="student.id" th:value="${enrollment.student.id}" required />
+
+        <label>Course ID:</label>
+        <input type="text" name="course.id" th:value="${enrollment.course.id}" required />
+
+        <label>Semester:</label>
+        <input type="text" name="semester" th:value="${enrollment.semester}" required />
+		<br>
+        <button type="submit">Update Enrollment</button>
+		<button onclick="history.back()">Back</button>
+
+    </form>
+</body>
+</html>

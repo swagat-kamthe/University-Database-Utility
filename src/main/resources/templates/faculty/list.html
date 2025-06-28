@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Faculty List</title>
+    <style>
+		body {
+				            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				            margin: 0;
+				            padding: 0;
+				            background-color: #f9f9f9;
+				        }
+
+				        header {
+				            background-color: #003366;
+				            color: white;
+				            padding: 15px 30px;
+				            display: flex;
+				            align-items: center;
+				            justify-content: space-between;
+				            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+				        }
+
+				        header h1 {
+				            margin: 0;
+				            font-size: 24px;
+				        }
+
+				        header img {
+				            height: 40px;
+				            margin-right: 15px;
+				        }
+
+				        nav a {
+				            color: white;
+				            text-decoration: none;
+				            margin: 0 15px;
+				            font-weight: 500;
+				        }
+
+				        nav a:hover {
+				            text-decoration: underline;
+				        }
+							nav a.active{
+							    background-color: #002244;
+							    padding: 8px 15px 26px 15px; 
+							    border-radius: 6px 6px 0px 0px;
+							    font-weight: bold;
+							}
+
+				        main {
+				            padding: 30px;
+				        }
+
+				        footer {
+				            background-color: #003366;
+				            color: white;
+				            text-align: center;
+				            padding: 15px;
+				            position: relative;
+				            bottom: 0;
+				            width: 100%;
+				            font-size: 14px;
+				        }
+
+				        h2 {
+				            color: #333;
+				        }
+
+				        a.button-link {
+				            text-decoration: none;
+				            color: white;
+				            background-color: #4CAF50;
+				            padding: 6px 12px;
+				            border-radius: 4px;
+				            margin-bottom: 10px;
+				            display: inline-block;
+				        }
+
+				        button {
+				            color: white;
+				            background-color: #4CAF50;
+				            padding: 10px 20px;
+				            border: none;
+				            border-radius: 6px;
+				            font-size: 16px;
+				            cursor: pointer;
+				            margin-bottom: 12px;
+				            transition: background-color 0.3s ease, transform 0.2s ease;
+				            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				        }
+
+				        button:hover {
+				            background-color: #45a049;
+				            transform: translateY(-2px);
+				        }
+
+				        table {
+				            border-collapse: collapse;
+				            width: 100%;
+				            margin-top: 10px;
+				        }
+
+				        th, td {
+				            border: 1px solid #ccc;
+				            padding: 10px;
+				            text-align: left;
+				        }
+
+				        th {
+				            background-color: #f2f2f2;
+				        }
+
+				        td a {
+				            color: #1a73e8;
+				            text-decoration: none;
+				            margin-right: 8px;
+				        }
+
+				        textarea {
+				            width: 100%;
+				        }
+						.summary-form {
+						    text-align: center;
+						    margin: 40px auto;
+						    padding: 20px;
+						    background-color: #e8f0fe;
+						    border-radius: 10px;
+						    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+						    max-width: 700px;
+						}
+
+						.hidden-textarea {
+						    display: none;
+						}
+
+						.summary-button {
+						    background-color: #003366;
+						    color: white;
+						    padding: 12px 24px;
+						    border: none;
+						    border-radius: 8px;
+						    font-size: 16px;
+						    cursor: pointer;
+						    font-weight: bold;
+						    transition: background-color 0.3s ease;
+						}
+
+						.summary-button:hover {
+						    background-color: #002244;
+						}
+						.upload-form {
+						    margin: 40px auto 15px auto;
+						    padding: 20px;
+						    background-color: #e6f1fb;
+						    border-radius: 10px;
+						    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+						    max-width: 600px;
+						    text-align: center;
+						}
+
+						.upload-form input[type="file"] {
+						    padding: 10px;
+						    font-size: 16px;
+						    margin-bottom: 10px;
+						    border-radius: 5px;
+						    border: 1px solid #ccc;
+						    background-color: #fff;
+						}
+
+						.upload-form button {
+						    background-color: #003366;
+						    color: white;
+						    padding: 10px 20px;
+						    font-size: 16px;
+						    font-weight: bold;
+						    border: none;
+						    border-radius: 8px;
+						    cursor: pointer;
+						    transition: background-color 0.3s ease;
+						}
+
+						.upload-form button:hover {
+						    background-color: #002244;
+						}
+
+
+    </style>
+</head>
+<body>
+	<header>
+			    <div style="display: flex; align-items: center;">
+					<img src="/images/logo.png" alt="University Logo" />
+			        <h1>University Database Utility</h1>
+			    </div>		
+
+			    <nav>
+			        <a href="/">Home</a>
+					<a href="/students">Student</a>
+			        <a href="/courses">Course</a>
+			        <a href="/faculties" class="active">Faculty</a>
+					<a href="/enrollments" >Enrollment</a>
+			    </nav>
+	</header>
+<main>
+    <h2>All Faculty Members</h2>
+	<div style="display: flex; justify-content: space-between; align-items: center; padding: 0 40px; margin: 30px 0; width: 100%;">
+	    <a href="/faculties/add" style="margin-left: -40px;" class="button-link">Add New Faculty</a>
+		<a class="button-link" style="margin-right: 50px;" href="/faculties/export/pdf" target="_blank">Download PDF</a>
+		</div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="faculty : ${faculties}">
+            <td th:text="${faculty.id}"></td>
+            <td th:text="${faculty.name}"></td>
+            <td th:text="${faculty.department}"></td>
+            <td>
+                <a th:href="@{'/faculties/edit/' + ${faculty.id}}">Edit</a>
+                <a th:href="@{'/faculties/delete/' + ${faculty.id}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+	
+	<form class="summary-form" action="/summarizes/chat" method="post">
+	    <textarea class="hidden-textarea" name="inputText" rows="10" cols="80" required>
+	        Summarize the faculty data below. Do not repeat or list any records. Just describe patterns or insights briefly.
+	        Your task:
+	        1. Identify the key patterns or trends from the data.
+	        2. Do **not** list or restate individual records.
+	        3. Provide only a summary, not the raw data.
+	        -----------------------------------------
+	        <th:block th:each="faculty : ${faculties}">
+	            [[${faculty.id}]], [[${faculty.name}]], [[${faculty.department}]]&#10;
+	        </th:block>
+	    </textarea>
+	    <button class="summary-button" type="submit">Summarize Data</button>
+	</form>
+
+	<form action="/faculties/upload" method="post" enctype="multipart/form-data" class="upload-form">
+			    <input type="file" name="file" accept=".csv" required />
+			    <button type="submit">Upload CSV</button>
+			</form>
+</main>
+
+<footer>
+    &copy; 2025 Savitribai Phule Pune University | Department of Computer Science<br/>
+    Contact: info@university.edu | Phone: +91-12345-67890
+</footer>
+
+</body>
+</html>

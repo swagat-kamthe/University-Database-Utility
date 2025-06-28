@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+        input {
+            padding: 6px;
+            width: 300px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Edit Student</h2>
+    <form action="/students/update" method="post">
+        <input type="hidden" name="id" th:value="${student.id}" />
+
+        <label>Name:</label>
+        <input type="text" name="name" th:value="${student.name}" required />
+
+        <label>Email:</label>
+        <input type="email" name="email" th:value="${student.email}" required />
+		<br>
+        <button type="submit">Update Student</button>
+		<button onclick="history.back()">Back</button>
+
+    </form>
+</body>
+</html>

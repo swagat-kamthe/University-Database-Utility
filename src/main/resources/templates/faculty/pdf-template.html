@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Faculty Members</h2>
+    <table>
+		<tr>
+		            <th>ID</th>
+		            <th>Name</th>
+		            <th>Department</th>
+        </tr>
+		<tr th:each="faculty : ${faculties}">
+		       <td th:text="${faculty.id}"></td>
+		       <td th:text="${faculty.name}"></td>
+		       <td th:text="${faculty.department}"></td>
+        </tr>
+    </table>
+</body>
+</html>

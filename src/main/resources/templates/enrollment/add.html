@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Enroll Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+        input {
+            padding: 6px;
+            width: 300px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enroll Student</h2>
+    <form action="/enrollments/add" method="post">
+        <label>Student ID:</label>
+        <input type="text" name="student.id" required />
+
+        <label>Course ID:</label>
+        <input type="text" name="course.id" required />
+
+        <label>Semester:</label>
+        <input type="text" name="semester" required /><br>
+
+        <button type="submit">Add Enrollment</button>
+		<button onclick="history.back()">Back</button>
+
+    </form>
+</body>
+</html>

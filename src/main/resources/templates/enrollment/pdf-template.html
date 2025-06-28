@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Enrollments</h2>
+    <table>
+		<tr>
+		            <th>ID</th>
+		            <th>Student ID</th>
+		            <th>Student Name</th>
+		            <th>Course ID</th>
+		            <th>Course Name</th>
+		            <th>Semester</th>
+		        </tr>
+		<tr th:each="enrollment : ${enrollments}">
+		  <td th:text="${enrollment.id}"></td>
+		  <td th:text="${enrollment.student.id}"></td>
+		  <td th:text="${enrollment.student.name}"></td>
+		  <td th:text="${enrollment.course.id}"></td>
+		  <td th:text="${enrollment.course.name}"></td>
+		  <td th:text="${enrollment.semester}"></td>
+        </tr>
+    </table>
+</body>
+</html>

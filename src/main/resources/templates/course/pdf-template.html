@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Courses</h2>
+    <table>
+		<tr>
+		            <th>ID</th><th>Name</th><th>Code</th><th>Description</th>
+		            <th>Faculty ID</th><th>Faculty Name</th>
+		        </tr>
+		        <tr th:each="course : ${courses}">
+		            <td th:text="${course.id}">1</td>
+		            <td th:text="${course.name}">Course Name</td>
+		            <td th:text="${course.code}">CS101</td>
+		            <td th:text="${course.description}">Description</td>
+		            <td th:text="${course.faculty != null ? course.faculty.id : 'No Faculty'}">Faculty ID</td>
+		            <td th:text="${course.faculty != null ? course.faculty.name : 'No Faculty'}">Faculty Name</td>
+        </tr>
+    </table>
+</body>
+</html>

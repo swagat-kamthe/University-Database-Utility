@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 2px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add New Course</h2>
+    <form action="/courses/add" method="post">
+        <label>Name:
+            <input type="text" name="name" required />
+        </label>
+        <label>Code:
+            <input type="text" name="code" required />
+        </label>
+        <label>Description:
+            <input type="text" name="description" required />
+        </label>
+        <label>Faculty ID:
+            <input type="text" name="faculty.id" required />
+        </label>
+		<br>
+        <button type="submit">Add Course</button>
+		<button onclick="history.back()">Back</button>
+
+    </form>
+</body>
+</html>
