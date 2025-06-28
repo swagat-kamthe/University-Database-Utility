@@ -14,7 +14,7 @@ public class GeminiService {
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
 
-    private static final String API_KEY = "AIzaSyB9IN2zth7zKfHyr_ZGMymlVm5TK9ewzMA";
+    private static final String API_KEY = "YOUR_API_KEY";
     private static final String ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
 
     public GeminiService() {
